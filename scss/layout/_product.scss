@@ -1,0 +1,31 @@
+@use "../abstracts";
+
+.product {
+    margin-top: 80px;
+
+    @include abstracts.screen(lg) {
+        margin-top: 50px;
+    }
+
+    @include abstracts.screen(md) {
+        margin-top: 40px;
+    }
+
+    &__left {
+        overflow: hidden;
+        height: 800px;
+        border-radius: 24px;
+
+        @include abstracts.screen(xxl) {
+            height: 680px;
+        }
+
+        @include abstracts.screen(xl) {
+            height: 580px;
+        }
+    }
+
+    &__img {
+        object-fit: contain;
+    }
+}

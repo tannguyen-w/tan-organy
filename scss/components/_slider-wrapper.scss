@@ -1,0 +1,153 @@
+@use "../abstracts";
+
+.slider-wrapper {
+    margin-top: 300px;
+    position: relative;
+    margin-bottom: 30px;
+
+    @include abstracts.screen(xl) {
+        margin-top: 330px;
+    }
+
+    @include abstracts.screen(lg) {
+        margin-top: 680px;
+    }
+
+    @include abstracts.screen(md) {
+        margin-top: 40px;
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        translate: 0 -50%;
+        z-index: 1;
+
+        padding: 18px;
+        background: #fff;
+
+        &:hover {
+            opacity: 0.9;
+        }
+
+        &--left {
+            border-radius: 0 8px 8px 0;
+            left: 0;
+            display: none;
+        }
+
+        &--right {
+            border-radius: 8px 0 0 8px;
+            right: 0;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        overflow-x: auto;
+        gap: 10px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__item {
+        position: relative;
+    }
+
+    &__image {
+        // --width: 453px;
+        // width: var(--width);
+        // height: calc(--width * 1.76);
+        width: 453px;
+        height: 800px;
+        object-fit: cover;
+        border-radius: 16px;
+
+        @include abstracts.screen(xl) {
+            // --width: 360px;
+            // height: calc(--width * 1.76);
+            width: 360px;
+            height: 600px;
+        }
+
+        @include abstracts.screen(lg) {
+            width: 300px;
+            height: 500px;
+        }
+    }
+
+    &__prod {
+        position: absolute;
+        bottom: 42px;
+        left: 46px;
+
+        color: #fff;
+    }
+
+    &__name {
+        margin-bottom: 24px;
+        font-size: 3.2rem;
+        line-height: 4.4rem;
+        font-weight: 600;
+    }
+
+    &__link {
+        display: inline-block;
+        padding: 4px 0;
+        border-bottom: 1px solid;
+        translate: 0;
+        transition: 0.2s;
+        transition-duration: translate, transition;
+
+        &:hover {
+            translate: 0 -4px;
+            font-weight: 600;
+        }
+    }
+}
+
+.slider-scrollbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 24px;
+
+    &:hover &__track {
+        height: 4px;
+    }
+
+    &__track {
+        position: relative;
+        height: 2px;
+        width: 100%;
+        background: #ccc;
+        border-radius: 4px;
+    }
+
+    &__thumb {
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        background: #000;
+        border-radius: inherit;
+        cursor: grab;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -10px;
+            bottom: -10px;
+        }
+
+        &:active {
+            cursor: grabbing;
+            height: 8px;
+            top: -2px;
+        }
+    }
+}

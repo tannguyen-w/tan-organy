@@ -1,0 +1,31 @@
+@use "../abstracts";
+
+.header {
+    position: relative;
+    background: url(../../assets/images/header-01.jfif) no-repeat;
+    background-size: cover;
+    background-position: top;
+    height: 100vh;
+
+    &__heading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        text-align: center;
+        width: min(822px, 100%);
+
+        font-size: 6.4rem;
+        color: #fff;
+
+        @include abstracts.screen(xl) {
+            font-size: 5.2rem;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 5.4rem;
+
+            width: calc(100% - 40px);
+        }
+    }
+}

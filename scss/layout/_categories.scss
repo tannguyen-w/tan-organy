@@ -1,0 +1,140 @@
+@use "../abstracts";
+
+.categories {
+    margin-top: 80px;
+
+    &__inner {
+        position: relative;
+    }
+
+    &__content {
+        width: 575px;
+
+        @include abstracts.screen(xxl) {
+            width: 100%;
+        }
+    }
+
+    &__heading {
+        font-size: 6.4rem;
+        line-height: 7.4rem;
+        color: #1f1f1f;
+
+        @include abstracts.screen(xl) {
+            font-size: 5.2rem;
+            line-height: 1.2;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 3.2rem;
+            line-height: 4.2rem;
+            text-align: center;
+        }
+    }
+
+    &__desc {
+        margin-top: 32px;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+
+        @include abstracts.screen(xl) {
+            margin-top: 16px;
+        }
+
+        @include abstracts.screen(md) {
+            margin-top: 28px;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        object-fit: cover;
+
+        border-radius: 24px;
+
+        @include abstracts.screen(md) {
+            margin-top: 28px;
+        }
+    }
+
+    &__bottom {
+        position: absolute;
+        bottom: -60%;
+
+        @include abstracts.screen(xxl) {
+            bottom: -75%;
+        }
+
+        @include abstracts.screen(xl) {
+            bottom: -100%;
+        }
+
+        @include abstracts.screen(lg) {
+            bottom: -250%;
+        }
+
+        @include abstracts.screen(md) {
+            bottom: -50%;
+            position: initial;
+        }
+
+        &-row {
+            @include abstracts.screen(md) {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                overflow-x: auto;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+
+        &-col {
+            @include abstracts.screen(md) {
+                width: 245px;
+                height: 327px;
+            }
+        }
+
+        &-item {
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+            background: #f4f0ea;
+            width: 321px;
+            height: 300px;
+            border-radius: 16px;
+
+            @include abstracts.screen(xxl) {
+                width: 100%;
+            }
+
+            // @include abstracts.screen(md) {
+            //     width: 245px;
+            //     height: 327px;
+            //     margin: 40px;
+            // }
+        }
+
+        &-item--decor {
+            position: relative;
+            height: 100%;
+        }
+
+        &--icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+        }
+
+        &--desc {
+            padding: 0 22px 22px 14px;
+            font-size: 1.6rem;
+            line-height: 2.2rem;
+        }
+    }
+}
